@@ -114,13 +114,15 @@
             this.rdBuscar.AutoSize = true;
             this.rdBuscar.BackColor = System.Drawing.Color.Transparent;
             this.rdBuscar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rdBuscar.ImageKey = "(ninguno)";
-            this.rdBuscar.Location = new System.Drawing.Point(40, 93);
+            this.rdBuscar.Location = new System.Drawing.Point(24, 73);
             this.rdBuscar.Name = "rdBuscar";
             this.rdBuscar.Size = new System.Drawing.Size(123, 30);
             this.rdBuscar.TabIndex = 1;
             this.rdBuscar.TabStop = true;
             this.rdBuscar.Text = "Buscar";
+            this.rdBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdBuscar.UseVisualStyleBackColor = false;
             this.rdBuscar.Click += new System.EventHandler(this.rdBuscar_Click);
             // 
@@ -129,12 +131,14 @@
             this.rdnAgregar.AutoSize = true;
             this.rdnAgregar.BackColor = System.Drawing.Color.Transparent;
             this.rdnAgregar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdnAgregar.Location = new System.Drawing.Point(245, 93);
+            this.rdnAgregar.Image = global::Proyecto.Properties.Resources.agregar;
+            this.rdnAgregar.Location = new System.Drawing.Point(239, 73);
             this.rdnAgregar.Name = "rdnAgregar";
-            this.rdnAgregar.Size = new System.Drawing.Size(144, 30);
+            this.rdnAgregar.Size = new System.Drawing.Size(176, 32);
             this.rdnAgregar.TabIndex = 2;
             this.rdnAgregar.TabStop = true;
             this.rdnAgregar.Text = "Agregar";
+            this.rdnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdnAgregar.UseVisualStyleBackColor = false;
             this.rdnAgregar.Click += new System.EventHandler(this.rdnAgregar_Click);
             // 
@@ -143,12 +147,15 @@
             this.rdActualizar.AutoSize = true;
             this.rdActualizar.BackColor = System.Drawing.Color.Transparent;
             this.rdActualizar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdActualizar.Location = new System.Drawing.Point(485, 93);
+            this.rdActualizar.Image = global::Proyecto.Properties.Resources.actualizar;
+            this.rdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rdActualizar.Location = new System.Drawing.Point(454, 76);
             this.rdActualizar.Name = "rdActualizar";
-            this.rdActualizar.Size = new System.Drawing.Size(182, 30);
+            this.rdActualizar.Size = new System.Drawing.Size(214, 32);
             this.rdActualizar.TabIndex = 3;
             this.rdActualizar.TabStop = true;
             this.rdActualizar.Text = "Actualizar";
+            this.rdActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdActualizar.UseVisualStyleBackColor = false;
             this.rdActualizar.Click += new System.EventHandler(this.rdActualizar_Click);
             // 
@@ -254,7 +261,7 @@
             this.btnBusqueda.BackColor = System.Drawing.Color.Gainsboro;
             this.btnBusqueda.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusqueda.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnBusqueda.Image = global::Proyecto.Properties.Resources.busqueda1;
+            this.btnBusqueda.Image = global::Proyecto.Properties.Resources.busqueda;
             this.btnBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusqueda.Location = new System.Drawing.Point(71, 178);
             this.btnBusqueda.Name = "btnBusqueda";
@@ -487,12 +494,14 @@
             this.rdDesactivar.AutoSize = true;
             this.rdDesactivar.BackColor = System.Drawing.Color.Transparent;
             this.rdDesactivar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDesactivar.Location = new System.Drawing.Point(741, 93);
+            this.rdDesactivar.Image = global::Proyecto.Properties.Resources.eliminar;
+            this.rdDesactivar.Location = new System.Drawing.Point(707, 76);
             this.rdDesactivar.Name = "rdDesactivar";
-            this.rdDesactivar.Size = new System.Drawing.Size(144, 30);
+            this.rdDesactivar.Size = new System.Drawing.Size(176, 32);
             this.rdDesactivar.TabIndex = 4;
             this.rdDesactivar.TabStop = true;
             this.rdDesactivar.Text = "Eliminar";
+            this.rdDesactivar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdDesactivar.UseVisualStyleBackColor = false;
             this.rdDesactivar.Click += new System.EventHandler(this.rdDesactivar_Click);
             // 
@@ -517,7 +526,7 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView4.Location = new System.Drawing.Point(181, 215);
+            this.dataGridView4.Location = new System.Drawing.Point(214, 208);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(441, 132);
             this.dataGridView4.TabIndex = 4;
@@ -545,20 +554,20 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 215);
+            this.label10.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(10, 217);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 24);
+            this.label10.Size = new System.Drawing.Size(192, 28);
             this.label10.TabIndex = 3;
             this.label10.Text = "Articulos inactivos";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(15, 65);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 24);
+            this.label9.Size = new System.Drawing.Size(173, 28);
             this.label9.TabIndex = 2;
             this.label9.Text = "Articulos activos";
             // 
@@ -572,7 +581,7 @@
             this.Column9,
             this.Column10,
             this.Eliminar});
-            this.dataGridView3.Location = new System.Drawing.Point(181, 72);
+            this.dataGridView3.Location = new System.Drawing.Point(214, 72);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(642, 120);
             this.dataGridView3.TabIndex = 1;
@@ -610,14 +619,14 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(408, 19);
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(406, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 24);
+            this.label3.Size = new System.Drawing.Size(113, 31);
             this.label3.TabIndex = 0;
             this.label3.Text = "Eliminar";
             // 
-            // Form1
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -625,17 +634,17 @@
             this.BackgroundImage = global::Proyecto.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(901, 547);
-            this.Controls.Add(this.rdDesactivar);
             this.Controls.Add(this.rdActualizar);
+            this.Controls.Add(this.rdDesactivar);
             this.Controls.Add(this.rdnAgregar);
             this.Controls.Add(this.rdBuscar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.panelDesactivar);
             this.Controls.Add(this.panelAgregar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de tienda";
             this.panelBusqueda.ResumeLayout(false);
