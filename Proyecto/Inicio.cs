@@ -15,6 +15,10 @@ namespace Proyecto
         public Inicio()
         {
             InitializeComponent();
+            Conexion con = new Conexion();
+            
+            
+            
         }
 
         private void rdBuscar_Click(object sender, EventArgs e)
@@ -77,6 +81,11 @@ namespace Proyecto
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rdBuscar_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
