@@ -28,22 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.label1 = new System.Windows.Forms.Label();
             this.rdBuscar = new System.Windows.Forms.RadioButton();
             this.rdnAgregar = new System.Windows.Forms.RadioButton();
             this.rdActualizar = new System.Windows.Forms.RadioButton();
             this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.dataTable = new System.Windows.Forms.DataGridView();
             this.rdDescripcion = new System.Windows.Forms.RadioButton();
             this.rdClave = new System.Windows.Forms.RadioButton();
-            this.dataBusqueda = new System.Windows.Forms.DataGridView();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Decripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBusqueda = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,7 +79,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.panelBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
             this.panelAgregar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panelDesactivar.SuspendLayout();
@@ -118,7 +111,7 @@
             this.rdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rdBuscar.ImageKey = "(ninguno)";
             this.rdBuscar.Location = new System.Drawing.Point(32, 90);
-            this.rdBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.rdBuscar.Name = "rdBuscar";
             this.rdBuscar.Size = new System.Drawing.Size(153, 36);
             this.rdBuscar.TabIndex = 1;
@@ -136,7 +129,7 @@
             this.rdnAgregar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdnAgregar.Image = global::Proyecto.Properties.Resources.agregar;
             this.rdnAgregar.Location = new System.Drawing.Point(319, 90);
-            this.rdnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.rdnAgregar.Name = "rdnAgregar";
             this.rdnAgregar.Size = new System.Drawing.Size(210, 36);
             this.rdnAgregar.TabIndex = 2;
@@ -154,7 +147,7 @@
             this.rdActualizar.Image = global::Proyecto.Properties.Resources.actualizar;
             this.rdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rdActualizar.Location = new System.Drawing.Point(605, 94);
-            this.rdActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.rdActualizar.Name = "rdActualizar";
             this.rdActualizar.Size = new System.Drawing.Size(259, 36);
             this.rdActualizar.TabIndex = 3;
@@ -167,25 +160,36 @@
             // panelBusqueda
             // 
             this.panelBusqueda.BackColor = System.Drawing.Color.Transparent;
+            this.panelBusqueda.Controls.Add(this.dataTable);
             this.panelBusqueda.Controls.Add(this.rdDescripcion);
             this.panelBusqueda.Controls.Add(this.rdClave);
-            this.panelBusqueda.Controls.Add(this.dataBusqueda);
             this.panelBusqueda.Controls.Add(this.btnBusqueda);
             this.panelBusqueda.Controls.Add(this.txtBusqueda);
             this.panelBusqueda.Controls.Add(this.label2);
             this.panelBusqueda.Location = new System.Drawing.Point(16, 140);
-            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.panelBusqueda.Name = "panelBusqueda";
             this.panelBusqueda.Size = new System.Drawing.Size(1169, 457);
             this.panelBusqueda.TabIndex = 5;
             this.panelBusqueda.Visible = false;
+            this.panelBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBusqueda_Paint);
+            // 
+            // dataTable
+            // 
+            this.dataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTable.Location = new System.Drawing.Point(439, 92);
+            this.dataTable.Name = "dataTable";
+            this.dataTable.RowHeadersWidth = 51;
+            this.dataTable.RowTemplate.Height = 24;
+            this.dataTable.Size = new System.Drawing.Size(692, 278);
+            this.dataTable.TabIndex = 8;
             // 
             // rdDescripcion
             // 
             this.rdDescripcion.AutoSize = true;
             this.rdDescripcion.Font = new System.Drawing.Font("Sitka Small", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDescripcion.Location = new System.Drawing.Point(168, 113);
-            this.rdDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.rdDescripcion.Name = "rdDescripcion";
             this.rdDescripcion.Size = new System.Drawing.Size(199, 44);
             this.rdDescripcion.TabIndex = 7;
@@ -198,83 +202,14 @@
             this.rdClave.AutoSize = true;
             this.rdClave.Font = new System.Drawing.Font("Sitka Small", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdClave.Location = new System.Drawing.Point(27, 113);
-            this.rdClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdClave.Margin = new System.Windows.Forms.Padding(4);
             this.rdClave.Name = "rdClave";
             this.rdClave.Size = new System.Drawing.Size(112, 44);
             this.rdClave.TabIndex = 6;
             this.rdClave.TabStop = true;
             this.rdClave.Text = "Clave";
             this.rdClave.UseVisualStyleBackColor = true;
-            // 
-            // dataBusqueda
-            // 
-            this.dataBusqueda.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataBusqueda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Clave,
-            this.Decripcion,
-            this.Precio,
-            this.Cantidad,
-            this.Marca});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataBusqueda.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataBusqueda.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataBusqueda.Location = new System.Drawing.Point(417, 95);
-            this.dataBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataBusqueda.Name = "dataBusqueda";
-            this.dataBusqueda.RowHeadersWidth = 51;
-            this.dataBusqueda.Size = new System.Drawing.Size(720, 273);
-            this.dataBusqueda.TabIndex = 5;
-            // 
-            // Clave
-            // 
-            this.Clave.HeaderText = "Clave";
-            this.Clave.MinimumWidth = 6;
-            this.Clave.Name = "Clave";
-            this.Clave.Width = 125;
-            // 
-            // Decripcion
-            // 
-            this.Decripcion.HeaderText = "Descripción";
-            this.Decripcion.MinimumWidth = 6;
-            this.Decripcion.Name = "Decripcion";
-            this.Decripcion.Width = 125;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 125;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 125;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.Width = 125;
+            this.rdClave.CheckedChanged += new System.EventHandler(this.rdClave_CheckedChanged);
             // 
             // btnBusqueda
             // 
@@ -284,7 +219,7 @@
             this.btnBusqueda.Image = global::Proyecto.Properties.Resources.busqueda;
             this.btnBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusqueda.Location = new System.Drawing.Point(95, 219);
-            this.btnBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.btnBusqueda.Name = "btnBusqueda";
             this.btnBusqueda.Size = new System.Drawing.Size(193, 60);
             this.btnBusqueda.TabIndex = 4;
@@ -297,7 +232,7 @@
             // 
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.Location = new System.Drawing.Point(49, 174);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(296, 34);
             this.txtBusqueda.TabIndex = 2;
@@ -331,7 +266,7 @@
             this.panelAgregar.Controls.Add(this.lblTitulo);
             this.panelAgregar.Controls.Add(this.btnActualizar);
             this.panelAgregar.Location = new System.Drawing.Point(12, 137);
-            this.panelAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.panelAgregar.Name = "panelAgregar";
             this.panelAgregar.Size = new System.Drawing.Size(1169, 457);
             this.panelAgregar.TabIndex = 8;
@@ -347,7 +282,7 @@
             this.Column4,
             this.Column5});
             this.dataGridView2.Location = new System.Drawing.Point(456, 89);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(697, 279);
@@ -392,7 +327,7 @@
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(163, 363);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(156, 41);
             this.btnAgregar.TabIndex = 11;
@@ -404,7 +339,7 @@
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(180, 305);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(256, 32);
             this.txtPrecio.TabIndex = 10;
@@ -413,7 +348,7 @@
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(180, 250);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(256, 32);
             this.txtCantidad.TabIndex = 9;
@@ -422,7 +357,7 @@
             // 
             this.txtMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarca.Location = new System.Drawing.Point(180, 196);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMarca.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(256, 32);
             this.txtMarca.TabIndex = 8;
@@ -431,7 +366,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(180, 140);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(256, 32);
             this.txtDescripcion.TabIndex = 7;
@@ -440,7 +375,7 @@
             // 
             this.txtClave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClave.Location = new System.Drawing.Point(180, 89);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(256, 32);
             this.txtClave.TabIndex = 6;
@@ -515,7 +450,7 @@
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.Location = new System.Drawing.Point(163, 363);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(156, 41);
             this.btnActualizar.TabIndex = 13;
@@ -530,7 +465,7 @@
             this.btnSalir.Image = global::Proyecto.Properties.Resources.salir;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.Location = new System.Drawing.Point(1035, 588);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(131, 70);
             this.btnSalir.TabIndex = 9;
@@ -546,7 +481,7 @@
             this.rdDesactivar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDesactivar.Image = global::Proyecto.Properties.Resources.eliminar;
             this.rdDesactivar.Location = new System.Drawing.Point(943, 94);
-            this.rdDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.rdDesactivar.Name = "rdDesactivar";
             this.rdDesactivar.Size = new System.Drawing.Size(211, 36);
             this.rdDesactivar.TabIndex = 4;
@@ -565,7 +500,7 @@
             this.panelDesactivar.Controls.Add(this.dataGridView3);
             this.panelDesactivar.Controls.Add(this.label3);
             this.panelDesactivar.Location = new System.Drawing.Point(12, 137);
-            this.panelDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.panelDesactivar.Name = "panelDesactivar";
             this.panelDesactivar.Size = new System.Drawing.Size(1173, 460);
             this.panelDesactivar.TabIndex = 14;
@@ -579,7 +514,7 @@
             this.Column13,
             this.Column14});
             this.dataGridView4.Location = new System.Drawing.Point(285, 256);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.Size = new System.Drawing.Size(588, 162);
@@ -646,7 +581,7 @@
             this.Column10,
             this.Eliminar});
             this.dataGridView3.Location = new System.Drawing.Point(285, 89);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.Size = new System.Drawing.Size(856, 148);
@@ -723,13 +658,13 @@
             this.Controls.Add(this.panelDesactivar);
             this.Controls.Add(this.panelAgregar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de tienda";
             this.panelBusqueda.ResumeLayout(false);
             this.panelBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.panelAgregar.ResumeLayout(false);
             this.panelAgregar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -749,12 +684,6 @@
         private System.Windows.Forms.RadioButton rdnAgregar;
         private System.Windows.Forms.RadioButton rdActualizar;
         private System.Windows.Forms.Panel panelBusqueda;
-        private System.Windows.Forms.DataGridView dataBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Decripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelAgregar;
@@ -798,6 +727,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label label10;
         protected System.Windows.Forms.Button btnBusqueda;
+        private System.Windows.Forms.DataGridView dataTable;
     }
 }
 

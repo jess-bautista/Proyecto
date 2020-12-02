@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto
 {
-    class Articulos
+     public class Articulos
     {
         private float precio;
         private String descripcion;
@@ -15,38 +15,57 @@ namespace Proyecto
         private String marca;
 
 
-        public float Precio
+        public float getPrecio()
         {
-            get { return precio; }
-            set { precio = value; }
-
+            return precio;
         }
 
-        public String Descripcion
+        public void setPrecio(float pFPrecio)
         {
-            get { return descripcion; }
-            set { descripcion = value; }
-        }
-        
-        public int ClvArticulo
-        {
-            get { return clvArticulo; }
-            set { clvArticulo = value; }
+            this.precio = pFPrecio;
         }
 
-        public int CantDisponible
+        public String getdescripcion()
         {
-            get { return cantDisponible; }
-            set { cantDisponible = value; }
+            return descripcion;
         }
 
-        public String Marca
+        public void setDescripcion(String pSDescripcion)
         {
-            get { return marca; }
-            set { marca = value; }
+            this.descripcion = pSDescripcion;
         }
-            
-   
+
+        public int getClvArticulo()
+        {
+            return clvArticulo;
+        }
+
+        public void setClvArticulo(int piClvArticulo)
+        {
+            this.clvArticulo = piClvArticulo;
+        }
+
+        public int getCantDisponible()
+        {
+            return cantDisponible;
+        }
+
+        public void setCantDisponible(int piCantDisponible)
+        {
+            this.cantDisponible = piCantDisponible;
+        }
+
+        public String getMarca()
+        {
+            return marca;
+        }
+
+        public void setMarca(String pSMarca)
+        {
+            this.marca = pSMarca;
+        }
+
+
 
 
 

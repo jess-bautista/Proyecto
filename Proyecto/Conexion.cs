@@ -12,14 +12,16 @@ using System.Windows.Forms;
 
 namespace Proyecto
 {
+
     class Conexion
     { 
+
 
         SqlConnection cn;
         
         
 
-        public Conexion()
+        public void conexion()
         {
             try
             {
