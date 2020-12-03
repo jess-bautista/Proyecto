@@ -53,6 +53,21 @@ namespace Proyecto
 
         }
 
+        public void cerrarCon()
+        {
+            try
+            {
+
+                 SqlConnection cerrar = new SqlConnection("Data Source=.;Initial Catalog=INVENTARIO;Integrated Security=True");
+                 cerrar.Close();
+            }
+
+            catch (Exception Ex)
+            {
+                MessageBox.Show("No se pudo cerrar" + Ex.ToString());
+            }
+
+        }
 
 
         public String insertar(int clave, String descripcion, String marca, int cantidad, float precio )

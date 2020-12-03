@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rdBuscar = new System.Windows.Forms.RadioButton();
             this.rdnAgregar = new System.Windows.Forms.RadioButton();
-            this.rdActualizar = new System.Windows.Forms.RadioButton();
             this.panelBusqueda = new System.Windows.Forms.Panel();
             this.dataTable = new System.Windows.Forms.DataGridView();
             this.rdDescripcion = new System.Windows.Forms.RadioButton();
@@ -45,12 +44,6 @@
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelAgregar = new System.Windows.Forms.Panel();
-            this.tableAgre = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -75,13 +68,14 @@
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.activar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.eliminarD = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvA = new System.Windows.Forms.DataGridView();
             this.panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
             this.panelAgregar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableAgre)).BeginInit();
             this.panelDesactivar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvA)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +101,7 @@
             this.rdBuscar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rdBuscar.ImageKey = "(ninguno)";
-            this.rdBuscar.Location = new System.Drawing.Point(32, 90);
+            this.rdBuscar.Location = new System.Drawing.Point(94, 85);
             this.rdBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.rdBuscar.Name = "rdBuscar";
             this.rdBuscar.Size = new System.Drawing.Size(153, 36);
@@ -116,7 +110,6 @@
             this.rdBuscar.Text = "Buscar";
             this.rdBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdBuscar.UseVisualStyleBackColor = false;
-            this.rdBuscar.CheckedChanged += new System.EventHandler(this.rdBuscar_CheckedChanged);
             this.rdBuscar.Click += new System.EventHandler(this.rdBuscar_Click);
             // 
             // rdnAgregar
@@ -125,7 +118,7 @@
             this.rdnAgregar.BackColor = System.Drawing.Color.Transparent;
             this.rdnAgregar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdnAgregar.Image = global::Proyecto.Properties.Resources.agregar;
-            this.rdnAgregar.Location = new System.Drawing.Point(319, 90);
+            this.rdnAgregar.Location = new System.Drawing.Point(432, 85);
             this.rdnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.rdnAgregar.Name = "rdnAgregar";
             this.rdnAgregar.Size = new System.Drawing.Size(210, 36);
@@ -135,24 +128,6 @@
             this.rdnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdnAgregar.UseVisualStyleBackColor = false;
             this.rdnAgregar.Click += new System.EventHandler(this.rdnAgregar_Click);
-            // 
-            // rdActualizar
-            // 
-            this.rdActualizar.AutoSize = true;
-            this.rdActualizar.BackColor = System.Drawing.Color.Transparent;
-            this.rdActualizar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdActualizar.Image = global::Proyecto.Properties.Resources.actualizar;
-            this.rdActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rdActualizar.Location = new System.Drawing.Point(605, 94);
-            this.rdActualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.rdActualizar.Name = "rdActualizar";
-            this.rdActualizar.Size = new System.Drawing.Size(259, 36);
-            this.rdActualizar.TabIndex = 3;
-            this.rdActualizar.TabStop = true;
-            this.rdActualizar.Text = "Actualizar";
-            this.rdActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rdActualizar.UseVisualStyleBackColor = false;
-            this.rdActualizar.Click += new System.EventHandler(this.rdActualizar_Click);
             // 
             // panelBusqueda
             // 
@@ -169,7 +144,7 @@
             this.panelBusqueda.Size = new System.Drawing.Size(1169, 457);
             this.panelBusqueda.TabIndex = 5;
             this.panelBusqueda.Visible = false;
-            this.panelBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBusqueda_Paint);
+            
             // 
             // dataTable
             // 
@@ -206,7 +181,7 @@
             this.rdClave.TabStop = true;
             this.rdClave.Text = "Clave";
             this.rdClave.UseVisualStyleBackColor = true;
-            this.rdClave.CheckedChanged += new System.EventHandler(this.rdClave_CheckedChanged);
+            
             // 
             // btnBusqueda
             // 
@@ -248,7 +223,7 @@
             // panelAgregar
             // 
             this.panelAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.panelAgregar.Controls.Add(this.tableAgre);
+            this.panelAgregar.Controls.Add(this.dgvA);
             this.panelAgregar.Controls.Add(this.btnAgregar);
             this.panelAgregar.Controls.Add(this.txtPrecio);
             this.panelAgregar.Controls.Add(this.txtCantidad);
@@ -268,58 +243,6 @@
             this.panelAgregar.Size = new System.Drawing.Size(1169, 457);
             this.panelAgregar.TabIndex = 8;
             this.panelAgregar.Visible = false;
-            // 
-            // tableAgre
-            // 
-            this.tableAgre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableAgre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.tableAgre.Location = new System.Drawing.Point(456, 89);
-            this.tableAgre.Margin = new System.Windows.Forms.Padding(4);
-            this.tableAgre.Name = "tableAgre";
-            this.tableAgre.RowHeadersWidth = 51;
-            this.tableAgre.Size = new System.Drawing.Size(697, 279);
-            this.tableAgre.TabIndex = 12;
-            this.tableAgre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Clave";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Decripcion";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Precio";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Cantidad";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Marca";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
             // 
             // btnAgregar
             // 
@@ -477,14 +400,13 @@
             this.rdDesactivar.AutoSize = true;
             this.rdDesactivar.BackColor = System.Drawing.Color.Transparent;
             this.rdDesactivar.Font = new System.Drawing.Font("Perpetua Titling MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDesactivar.Image = global::Proyecto.Properties.Resources.eliminar;
-            this.rdDesactivar.Location = new System.Drawing.Point(942, 96);
+            this.rdDesactivar.Location = new System.Drawing.Point(764, 85);
             this.rdDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.rdDesactivar.Name = "rdDesactivar";
-            this.rdDesactivar.Size = new System.Drawing.Size(211, 36);
+            this.rdDesactivar.Size = new System.Drawing.Size(397, 36);
             this.rdDesactivar.TabIndex = 4;
             this.rdDesactivar.TabStop = true;
-            this.rdDesactivar.Text = "Eliminar";
+            this.rdDesactivar.Text = "Eliminar - ACTUALIZAR";
             this.rdDesactivar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rdDesactivar.UseVisualStyleBackColor = false;
             this.rdDesactivar.Click += new System.EventHandler(this.rdDesactivar_Click);
@@ -600,6 +522,16 @@
             this.eliminarD.UseColumnTextForButtonValue = true;
             this.eliminarD.Width = 125;
             // 
+            // dgvA
+            // 
+            this.dgvA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvA.Location = new System.Drawing.Point(477, 89);
+            this.dgvA.Name = "dgvA";
+            this.dgvA.RowHeadersWidth = 51;
+            this.dgvA.RowTemplate.Height = 24;
+            this.dgvA.Size = new System.Drawing.Size(672, 270);
+            this.dgvA.TabIndex = 14;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -608,15 +540,14 @@
             this.BackgroundImage = global::Proyecto.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1201, 673);
-            this.Controls.Add(this.rdActualizar);
             this.Controls.Add(this.rdDesactivar);
             this.Controls.Add(this.rdnAgregar);
             this.Controls.Add(this.rdBuscar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelDesactivar);
             this.Controls.Add(this.panelAgregar);
             this.Controls.Add(this.panelBusqueda);
+            this.Controls.Add(this.panelDesactivar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inicio";
@@ -627,11 +558,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.panelAgregar.ResumeLayout(false);
             this.panelAgregar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableAgre)).EndInit();
             this.panelDesactivar.ResumeLayout(false);
             this.panelDesactivar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,12 +573,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdBuscar;
         private System.Windows.Forms.RadioButton rdnAgregar;
-        private System.Windows.Forms.RadioButton rdActualizar;
         private System.Windows.Forms.Panel panelBusqueda;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelAgregar;
-        private System.Windows.Forms.DataGridView tableAgre;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -672,15 +601,11 @@
         public System.Windows.Forms.TextBox txtMarca;
         public System.Windows.Forms.TextBox txtDescripcion;
         public System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn update;
         private System.Windows.Forms.DataGridViewButtonColumn delete;
         private System.Windows.Forms.DataGridViewButtonColumn activar;
         private System.Windows.Forms.DataGridViewButtonColumn eliminarD;
+        private System.Windows.Forms.DataGridView dgvA;
     }
 }
 

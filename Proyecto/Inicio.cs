@@ -24,33 +24,47 @@ namespace Proyecto
         public Inicio()
         {
 
+
             InitializeComponent();
+
 
             Conexion cn = new Conexion();
             cn.conexion();
 
             if (txtBusqueda.Text == "")
             {
-                
-                
-                string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO WHERE ESTADO = 1");
-                SqlCommand cmd = new SqlCommand(query,cone);
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                DataTable tabla = new DataTable();
-                data.Fill(tabla);
-                dataTable.DataSource = tabla;
 
+                recarga();
             }
 
 
         }
+        public void recarga()
+        {
 
-        
+            string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO WHERE ESTADO = 1");
+            SqlCommand cmd = new SqlCommand(query, cone);
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            dataTable.DataSource = tabla;
+        }
+        public void recargaA()
+        {
+            string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO WHERE ESTADO = 1");
+            SqlCommand cmd = new SqlCommand(query, cone);
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            dgvA.DataSource = tabla;
+        }
+
         private void rdBuscar_Click(object sender, EventArgs e)
         {
             panelBusqueda.Visible = true;
             panelAgregar.Visible = false;
             panelDesactivar.Visible = false;
+            recarga();
             
         }
 
@@ -62,6 +76,7 @@ namespace Proyecto
             btnActualizar.Visible = false;
             btnAgregar.Visible = true;
             lblTitulo.Text = "Agregar";
+            recargaA();
         }
         private void rdActualizar_Click(object sender, EventArgs e)
         {
@@ -73,12 +88,8 @@ namespace Proyecto
             lblTitulo.Text = "Actualizar";
 
         }
-        private void rdDesactivar_Click(object sender, EventArgs e)
+        public void recargarD()
         {
-            panelDesactivar.Visible = true;
-            panelBusqueda.Visible = false;
-            panelAgregar.Visible = false;
-
             string query = ("SELECT CLAVE,DESCRIPCION,MARCA,PRECIO,CANTIDAD_DIS FROM ARTICULO WHERE ESTADO = 1");
             SqlCommand cmd = new SqlCommand(query, cone);
             SqlDataAdapter data = new SqlDataAdapter(cmd);
@@ -92,6 +103,14 @@ namespace Proyecto
             DataTable tabla1 = new DataTable();
             data1.Fill(tabla1);
             table2.DataSource = tabla1;
+        }
+        private void rdDesactivar_Click(object sender, EventArgs e)
+        {
+            panelDesactivar.Visible = true;
+            panelBusqueda.Visible = false;
+            panelAgregar.Visible = false;
+
+            recargarD();
 
         }
 
@@ -162,6 +181,14 @@ namespace Proyecto
 
             Conexion con = new Conexion();
             con.insertar(ar.getClvArticulo(), ar.getdescripcion(), ar.getMarca(), ar.getCantDisponible(), ar.getPrecio());
+            recargaA();
+            txtClave.Text = "";
+            txtDescripcion.Text = "";
+            txtCantidad.Text = "";
+            txtMarca.Text = "";
+            txtPrecio.Text = "";
+            
+
         }
 
         //BOTON DE ACTUALIZAR
@@ -199,23 +226,6 @@ namespace Proyecto
 
         }
 
-        private void panelBusqueda_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void rdClave_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           if (tableAgre.Columns[e.ColumnIndex].Name == "ACTUALIZAR")
-            {
-                MessageBox.Show("HOLA MUNDO");
-            }
-        }
 
         //Tabla actualizar y eliminar
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -234,7 +244,7 @@ namespace Proyecto
                     panelAgregar.Visible = true;
                     panelDesactivar.Visible = false;
                     panelBusqueda.Visible = false;
-                    tableAgre.Visible = false;
+                    dgvA.Visible = false;
                     btnAgregar.Visible = false;
                     btnActualizar.Visible = true;
                     lblTitulo.Text = "Actualizar";
@@ -255,8 +265,8 @@ namespace Proyecto
                     {
                         Conexion con2 = new Conexion();
                         con2.desactivar(ar.getClvArticulo());
-
-                    }
+                        recargarD();
+                }
             }
         }
 
@@ -271,6 +281,7 @@ namespace Proyecto
                 {
                     Conexion con2 = new Conexion();
                     con2.activar(ar.getClvArticulo());
+                    recargarD();
                 }
             } else if (table2.Columns[e.ColumnIndex].Name == "eliminarD")
             {
@@ -281,6 +292,7 @@ namespace Proyecto
                 {
                     Conexion con2 = new Conexion();
                     con2.eliminar(ar.getClvArticulo());
+                    recargarD();
                 }
             }
         }
