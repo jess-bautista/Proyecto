@@ -221,10 +221,7 @@ namespace Proyecto
             this.Close();
         }
 
-        private void rdBuscar_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
 
         //Tabla actualizar y eliminar
