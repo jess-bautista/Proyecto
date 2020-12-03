@@ -18,7 +18,7 @@ namespace Proyecto
     public partial class Inicio : Form
     {
 
-       //CONEXION AQUI PORQUE NO SUPE EXTRAERLA DE LA CLASE CONEXION
+       
         static string conexionS = "Data Source=.;Initial Catalog=INVENTARIO;Integrated Security=True";
         SqlConnection cone = new SqlConnection(conexionS);
         public Inicio()
@@ -26,20 +26,10 @@ namespace Proyecto
 
             InitializeComponent();
 
-
-
-
-
-
-            //CONEXION AQUI PORQUE NO SUPE EXTRAERLA DE LA CLASE CONEXION X2
             Conexion cn = new Conexion();
             cn.conexion();
 
-            
-
-
-
-            /*if (txtBusqueda.Text == "")
+            if (txtBusqueda.Text == "")
             {
                 
                 
@@ -50,7 +40,7 @@ namespace Proyecto
                 data.Fill(tabla);
                 dataTable.DataSource = tabla;
 
-            }*/
+            }
 
 
         }
@@ -88,7 +78,20 @@ namespace Proyecto
             panelDesactivar.Visible = true;
             panelBusqueda.Visible = false;
             panelAgregar.Visible = false;
-           
+
+            string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO");
+            SqlCommand cmd = new SqlCommand(query, cone);
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            dataGridView1.DataSource = tabla;
+
+            string query1 = ("SELECT * FROM ARTICULO WHERE ESTADO = 0");
+            SqlCommand cmd1 = new SqlCommand(query1, cone);
+            SqlDataAdapter data1 = new SqlDataAdapter(cmd1);
+            DataTable tabla1 = new DataTable();
+            data1.Fill(tabla1);
+            dataGridView3.DataSource = tabla1;
 
         }
 
@@ -110,6 +113,7 @@ namespace Proyecto
                     DataTable tabla = new DataTable();
                     data.Fill(tabla);
                     dataTable.DataSource = tabla;
+                    txtBusqueda.Text = "";
                 }
                 catch(Exception ex)
                 {
@@ -128,6 +132,7 @@ namespace Proyecto
                 DataTable tabla = new DataTable();
                 data.Fill(tabla);
                 dataTable.DataSource = tabla;
+                txtBusqueda.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -195,6 +200,19 @@ namespace Proyecto
         private void rdClave_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           if (dataGridView2.Columns[e.ColumnIndex].Name == "ACTUALIZAR")
+            {
+                MessageBox.Show("HOLA MUNDO");
+            }
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
