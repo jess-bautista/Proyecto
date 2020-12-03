@@ -648,6 +648,7 @@
             this.BackgroundImage = global::Proyecto.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1201, 673);
+            this.Controls.Add(this.panelAgregar);
             this.Controls.Add(this.rdActualizar);
             this.Controls.Add(this.rdDesactivar);
             this.Controls.Add(this.rdnAgregar);
@@ -656,7 +657,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.panelDesactivar);
-            this.Controls.Add(this.panelAgregar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inicio";

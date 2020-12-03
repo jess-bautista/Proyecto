@@ -148,14 +148,31 @@ namespace Proyecto
         //elementos txtClave,txtDescripcion,txtPrecio,txtMarca,txtCantidad
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-          
+            Articulos ar = new Articulos();
+            ar.setClvArticulo(Int32.Parse(txtClave.Text));
+            ar.setDescripcion(txtDescripcion.Text);
+            ar.setMarca(txtMarca.Text);
+            ar.setCantDisponible(Int32.Parse(txtCantidad.Text));
+            ar.setPrecio(float.Parse(txtPrecio.Text));
+
+            //MessageBox.Show(ar.getClvArticulo() +" "+ar.getdescripcion() + " " + ar.getMarca() + " " + ar.getCantDisponible() + " " + ar.getPrecio());
+
+            Conexion con = new Conexion();
+            con.insertar(ar.getClvArticulo(), ar.getdescripcion(), ar.getMarca(), ar.getCantDisponible(), ar.getPrecio());
+            
+            
 
 
         }
 
         private void Actualizar_Click(object sender, EventArgs e)
         {
-
+            Articulos ar = new Articulos();
+            ar.setClvArticulo(Int32.Parse(txtClave.Text));
+            ar.setDescripcion(txtDescripcion.Text);
+            ar.setMarca(txtMarca.Text);
+            ar.setCantDisponible(Int32.Parse(txtCantidad.Text));
+            ar.setPrecio(float.Parse(txtPrecio.Text));
         }
 
         //salir
