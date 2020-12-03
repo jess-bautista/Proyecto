@@ -33,7 +33,7 @@ namespace Proyecto
             {
                 
                 
-                string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO");
+                string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO WHERE ESTADO = 1");
                 SqlCommand cmd = new SqlCommand(query,cone);
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 DataTable tabla = new DataTable();
@@ -79,19 +79,19 @@ namespace Proyecto
             panelBusqueda.Visible = false;
             panelAgregar.Visible = false;
 
-            string query = ("SELECT CLAVE,DESCRIPCION,PRECIO,CANTIDAD_DIS,MARCA FROM ARTICULO");
+            string query = ("SELECT CLAVE,DESCRIPCION,MARCA,PRECIO,CANTIDAD_DIS FROM ARTICULO WHERE ESTADO = 1");
             SqlCommand cmd = new SqlCommand(query, cone);
             SqlDataAdapter data = new SqlDataAdapter(cmd);
             DataTable tabla = new DataTable();
             data.Fill(tabla);
-            dataGridView1.DataSource = tabla;
+            table1.DataSource = tabla;
 
             string query1 = ("SELECT * FROM ARTICULO WHERE ESTADO = 0");
             SqlCommand cmd1 = new SqlCommand(query1, cone);
             SqlDataAdapter data1 = new SqlDataAdapter(cmd1);
             DataTable tabla1 = new DataTable();
             data1.Fill(tabla1);
-            dataGridView3.DataSource = tabla1;
+            table2.DataSource = tabla1;
 
         }
 
@@ -160,16 +160,11 @@ namespace Proyecto
             ar.setCantDisponible(Int32.Parse(txtCantidad.Text));
             ar.setPrecio(float.Parse(txtPrecio.Text));
 
-            //MessageBox.Show(ar.getClvArticulo() +" "+ar.getdescripcion() + " " + ar.getMarca() + " " + ar.getCantDisponible() + " " + ar.getPrecio());
-
             Conexion con = new Conexion();
             con.insertar(ar.getClvArticulo(), ar.getdescripcion(), ar.getMarca(), ar.getCantDisponible(), ar.getPrecio());
-            
-            
-
-
         }
 
+        //BOTON DE ACTUALIZAR
         private void Actualizar_Click(object sender, EventArgs e)
         {
             Articulos ar = new Articulos();
@@ -178,6 +173,18 @@ namespace Proyecto
             ar.setMarca(txtMarca.Text);
             ar.setCantDisponible(Int32.Parse(txtCantidad.Text));
             ar.setPrecio(float.Parse(txtPrecio.Text));
+            Conexion con1 = new Conexion();
+            con1.actualizar(ar.getClvArticulo(), ar.getdescripcion(),ar.getMarca(),ar.getCantDisponible(),ar.getPrecio());
+            if(con1.correcto == 1)
+            {
+                panelBusqueda.Visible = true;
+                panelAgregar.Visible = false;
+                panelDesactivar.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Fallo al actualizar");
+            }
         }
 
         //salir
@@ -204,15 +211,78 @@ namespace Proyecto
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           if (dataGridView2.Columns[e.ColumnIndex].Name == "ACTUALIZAR")
+           if (tableAgre.Columns[e.ColumnIndex].Name == "ACTUALIZAR")
             {
                 MessageBox.Show("HOLA MUNDO");
             }
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //Tabla actualizar y eliminar
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //accion del boton de actualizar
+            if(table1.Columns[e.ColumnIndex].Name == "update")
+            {
+                String clave = table1.CurrentRow.Cells[2].Value.ToString();
+                Articulos ar = new Articulos();
+                ar.setClvArticulo(Int32.Parse(table1.CurrentRow.Cells[2].Value.ToString()));
+                ar.setDescripcion(table1.CurrentRow.Cells[3].Value.ToString());
+                ar.setMarca(table1.CurrentRow.Cells[4].Value.ToString());
+                ar.setPrecio(float.Parse(table1.CurrentRow.Cells[5].Value.ToString()));
+                ar.setCantDisponible(Int32.Parse(table1.CurrentRow.Cells[6].Value.ToString()));
+                if(ar.getClvArticulo() > 0){
+                    panelAgregar.Visible = true;
+                    panelDesactivar.Visible = false;
+                    panelBusqueda.Visible = false;
+                    tableAgre.Visible = false;
+                    btnAgregar.Visible = false;
+                    btnActualizar.Visible = true;
+                    lblTitulo.Text = "Actualizar";
+                    txtClave.Text = ar.getClvArticulo().ToString();
+                    txtClave.Enabled = false;
+                    txtDescripcion.Text = ar.getdescripcion().ToString();
+                    txtMarca.Text = ar.getMarca().ToString();
+                    txtPrecio.Text = ar.getPrecio().ToString();
+                    txtCantidad.Text = ar.getCantDisponible().ToString();
+                }
+            }
+            else if (table1.Columns[e.ColumnIndex].Name == "delete")
+             {
+                    String clave = table1.CurrentRow.Cells[2].Value.ToString();
+                    Articulos ar = new Articulos();
+                    ar.setClvArticulo(Int32.Parse(table1.CurrentRow.Cells[2].Value.ToString()));
+                    if (ar.getClvArticulo() > 0)
+                    {
+                        Conexion con2 = new Conexion();
+                        con2.desactivar(ar.getClvArticulo());
 
+                    }
+            }
+        }
+
+        private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (table2.Columns[e.ColumnIndex].Name == "activar")
+            {
+                String clave = table2.CurrentRow.Cells[2].Value.ToString();
+                Articulos ar = new Articulos();
+                ar.setClvArticulo(Int32.Parse(table2.CurrentRow.Cells[2].Value.ToString()));
+                if (ar.getClvArticulo() > 0)
+                {
+                    Conexion con2 = new Conexion();
+                    con2.activar(ar.getClvArticulo());
+                }
+            } else if (table2.Columns[e.ColumnIndex].Name == "eliminarD")
+            {
+                String clave = table2.CurrentRow.Cells[2].Value.ToString();
+                Articulos ar = new Articulos();
+                ar.setClvArticulo(Int32.Parse(table2.CurrentRow.Cells[2].Value.ToString()));
+                if (ar.getClvArticulo() > 0)
+                {
+                    Conexion con2 = new Conexion();
+                    con2.eliminar(ar.getClvArticulo());
+                }
+            }
         }
     }
 }

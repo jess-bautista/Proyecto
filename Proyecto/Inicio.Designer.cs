@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.label1 = new System.Windows.Forms.Label();
             this.rdBuscar = new System.Windows.Forms.RadioButton();
@@ -44,7 +45,7 @@
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelAgregar = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tableAgre = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,21 +67,21 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.rdDesactivar = new System.Windows.Forms.RadioButton();
             this.panelDesactivar = new System.Windows.Forms.Panel();
+            this.table2 = new System.Windows.Forms.DataGridView();
+            this.table1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.activar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.eliminarD = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
             this.panelAgregar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableAgre)).BeginInit();
             this.panelDesactivar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -247,7 +248,7 @@
             // panelAgregar
             // 
             this.panelAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.panelAgregar.Controls.Add(this.dataGridView2);
+            this.panelAgregar.Controls.Add(this.tableAgre);
             this.panelAgregar.Controls.Add(this.btnAgregar);
             this.panelAgregar.Controls.Add(this.txtPrecio);
             this.panelAgregar.Controls.Add(this.txtCantidad);
@@ -268,23 +269,22 @@
             this.panelAgregar.TabIndex = 8;
             this.panelAgregar.Visible = false;
             // 
-            // dataGridView2
+            // tableAgre
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tableAgre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableAgre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
-            this.Editar});
-            this.dataGridView2.Location = new System.Drawing.Point(456, 89);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(697, 279);
-            this.dataGridView2.TabIndex = 12;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.Column5});
+            this.tableAgre.Location = new System.Drawing.Point(456, 89);
+            this.tableAgre.Margin = new System.Windows.Forms.Padding(4);
+            this.tableAgre.Name = "tableAgre";
+            this.tableAgre.RowHeadersWidth = 51;
+            this.tableAgre.Size = new System.Drawing.Size(697, 279);
+            this.tableAgre.TabIndex = 12;
+            this.tableAgre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // Column1
             // 
@@ -492,8 +492,8 @@
             // panelDesactivar
             // 
             this.panelDesactivar.BackColor = System.Drawing.Color.Transparent;
-            this.panelDesactivar.Controls.Add(this.dataGridView3);
-            this.panelDesactivar.Controls.Add(this.dataGridView1);
+            this.panelDesactivar.Controls.Add(this.table2);
+            this.panelDesactivar.Controls.Add(this.table1);
             this.panelDesactivar.Controls.Add(this.label10);
             this.panelDesactivar.Controls.Add(this.label3);
             this.panelDesactivar.Location = new System.Drawing.Point(12, 137);
@@ -501,6 +501,34 @@
             this.panelDesactivar.Name = "panelDesactivar";
             this.panelDesactivar.Size = new System.Drawing.Size(1173, 460);
             this.panelDesactivar.TabIndex = 14;
+            // 
+            // table2
+            // 
+            this.table2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.activar,
+            this.eliminarD});
+            this.table2.Location = new System.Drawing.Point(326, 256);
+            this.table2.Name = "table2";
+            this.table2.RowHeadersWidth = 51;
+            this.table2.RowTemplate.Height = 24;
+            this.table2.Size = new System.Drawing.Size(815, 164);
+            this.table2.TabIndex = 6;
+            this.table2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick_1);
+            // 
+            // table1
+            // 
+            this.table1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.update,
+            this.delete});
+            this.table1.Location = new System.Drawing.Point(21, 88);
+            this.table1.Name = "table1";
+            this.table1.RowHeadersWidth = 51;
+            this.table1.RowTemplate.Height = 24;
+            this.table1.Size = new System.Drawing.Size(1128, 150);
+            this.table1.TabIndex = 5;
+            this.table1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label10
             // 
@@ -524,43 +552,11 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Eliminar";
             // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            this.Editar.Width = 125;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.update,
-            this.delete});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1128, 150);
-            this.dataGridView1.TabIndex = 5;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.activar});
-            this.dataGridView3.Location = new System.Drawing.Point(326, 256);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(815, 164);
-            this.dataGridView3.TabIndex = 6;
-            // 
             // update
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.update.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.update.DefaultCellStyle = dataGridViewCellStyle3;
             this.update.HeaderText = "Modificar";
             this.update.MinimumWidth = 6;
             this.update.Name = "update";
@@ -570,13 +566,13 @@
             // 
             // delete
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.delete.DefaultCellStyle = dataGridViewCellStyle3;
-            this.delete.HeaderText = "Eliminar";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.delete.DefaultCellStyle = dataGridViewCellStyle4;
+            this.delete.HeaderText = "Desactivar";
             this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
-            this.delete.Text = "Eliminar";
+            this.delete.Text = "Desactivar";
             this.delete.UseColumnTextForButtonValue = true;
             this.delete.Width = 125;
             // 
@@ -592,6 +588,18 @@
             this.activar.UseColumnTextForButtonValue = true;
             this.activar.Width = 125;
             // 
+            // eliminarD
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSalmon;
+            this.eliminarD.DefaultCellStyle = dataGridViewCellStyle2;
+            this.eliminarD.HeaderText = "Eliminar";
+            this.eliminarD.MinimumWidth = 6;
+            this.eliminarD.Name = "eliminarD";
+            this.eliminarD.Text = "Eliminar";
+            this.eliminarD.UseColumnTextForButtonValue = true;
+            this.eliminarD.Width = 125;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -606,9 +614,9 @@
             this.Controls.Add(this.rdBuscar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelDesactivar);
             this.Controls.Add(this.panelAgregar);
             this.Controls.Add(this.panelBusqueda);
-            this.Controls.Add(this.panelDesactivar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Inicio";
@@ -619,11 +627,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.panelAgregar.ResumeLayout(false);
             this.panelAgregar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableAgre)).EndInit();
             this.panelDesactivar.ResumeLayout(false);
             this.panelDesactivar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,12 +647,7 @@
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelAgregar;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridView tableAgre;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -662,17 +665,22 @@
         private System.Windows.Forms.Label label10;
         protected System.Windows.Forms.Button btnBusqueda;
         private System.Windows.Forms.DataGridView dataTable;
-        private System.Windows.Forms.DataGridViewButtonColumn Editar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewButtonColumn update;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
-        private System.Windows.Forms.DataGridViewButtonColumn activar;
+        private System.Windows.Forms.DataGridView table1;
+        private System.Windows.Forms.DataGridView table2;
         public System.Windows.Forms.TextBox txtPrecio;
         public System.Windows.Forms.TextBox txtCantidad;
         public System.Windows.Forms.TextBox txtMarca;
         public System.Windows.Forms.TextBox txtDescripcion;
         public System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn update;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
+        private System.Windows.Forms.DataGridViewButtonColumn activar;
+        private System.Windows.Forms.DataGridViewButtonColumn eliminarD;
     }
 }
 
